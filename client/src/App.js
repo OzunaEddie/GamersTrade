@@ -19,9 +19,7 @@ import Ps4 from './components/consoles/ps4/Ps4';
 import Ps5 from './components/consoles/ps5/Ps5';
 import Pc from './components/consoles/pc/Pc';
 import Switchc from './components/consoles/switch/Switch';
-import NavCustomer from './components/navbars/nav_customer/NavCustomer';
 import NavHome from './components/navbars/nav_home/NavHome';
-import NavEmployee from './components/navbars/nav_employee/NavEmployee';
 import NavLogin from './components/navbars/nav_login/NavLogin';
 import Register from './components/access_pages/register/Register';
 import UserLogin from './components/access_pages/user_login/UserLogin';
@@ -32,10 +30,6 @@ class App extends React.Component {
   changeNav = (path) => {
 
     switch(path.toLowerCase()){
-      case '/customer':
-        return <NavCustomer/>
-      case '/employee':
-        return <NavEmployee/>
       case '/login':
       case '/register':
         return <NavLogin/>

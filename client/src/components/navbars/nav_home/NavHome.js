@@ -2,7 +2,7 @@ import React from 'react';
 import '../Nav.css'
 import './NavHome.css'
 import {Image,Navbar, Nav,NavDropdown,Form,FormControl,Button} from 'react-bootstrap';
-
+import logo from '../../assets/logo.png'
 
 
 export default class NavSurfer extends React.Component {
@@ -11,7 +11,13 @@ export default class NavSurfer extends React.Component {
       
       return (
         <Navbar className="navBackground" expand="lg">
-        <Navbar.Brand className="navBrand" href="/">Gamers<span className="half-navBrand">Trade</span></Navbar.Brand>
+        <Navbar.Brand className="navBrand" href="/">         <img
+        src={logo}
+        width="120"
+        height="50"
+        className="d-inline-block align-top"
+        alt="GamersTrade Logo"
+      /></Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="container-fluid">
