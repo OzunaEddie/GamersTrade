@@ -1,0 +1,14 @@
+
+.right-nav {
+    color: black !important;
+    font-weight: bold;
+    float:left;
+}
+
+.middle-nav {
+    margin-left: 40px !important;
+    color: black !important;
+    font-weight: bold;
+    float:left;
+}
+

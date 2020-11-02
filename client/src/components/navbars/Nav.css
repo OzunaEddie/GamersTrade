@@ -1,0 +1,48 @@
+.navItem {
+    color: black;
+    font-weight: bold;
+}
+.navBrand {
+    color: black !important;
+    font-weight: bold;
+}
+.half-navBrand{
+    color:#0E7A0D !important;
+    font-weight: bold; 
+}
+.navBackground {
+    background-color: white;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #0E7A0D;
+}
+.shopping {
+    width: 20px;
+    height: 20px;
+}
+.shopping-menu{
+    float: left !important;
+}
+
+.span {
+    color: #1877F2 !important;
+}
+
+.navSignOut {
+    color: #1877F2 !important;
+    font-weight: bold !important;
+    background-color: white !important;
+}
+
+.containerSearch {
+    width: 30%;
+}
+.searchBar {
+    width: 60% !important;
+    border-radius: 100px;
+    border-color: black;
+}
+.searchBtn {
+    border-radius: 100px;
+}
+.dropdown-toggle:after { content: none }
