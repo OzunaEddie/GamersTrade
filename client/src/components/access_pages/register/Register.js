@@ -28,7 +28,7 @@ export default class Register extends React.Component {
   // eventually api call to call the backend
   handleSubmit = (e) => {
     e.preventDefault();
-    const {firstName, lastName, username, email,email2, password, password2 } = this.state;
+    const {firstName, lastName, username, email, email2, password, password2 } = this.state;
     var newState = Object.assign({}, this.state);
     newState.errors = [];
     if(firstName === "" || lastName === "") {
@@ -91,12 +91,12 @@ export default class Register extends React.Component {
             <Form.Group controlId="formFirstName">
               <Form.Label className="text-dark font-weight-bold">First Name:</Form.Label>
               <Form.Control type="text" placeholder="First Name *"
-                onChange={this.handleChange("firstname")} />
+                onChange={this.handleChange("firstName")} />
             </Form.Group>
             <Form.Group controlId="formLastName">
               <Form.Label className="text-dark font-weight-bold">Last Name:</Form.Label>
               <Form.Control type="text" placeholder="Last Name *"
-                onChange={this.handleChange("lastname")} />
+                onChange={this.handleChange("lastName")} />
             </Form.Group>
             <Form.Group controlId="formEmail">
               <Form.Label className="text-dark font-weight-bold">Email:</Form.Label>
