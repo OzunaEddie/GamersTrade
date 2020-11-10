@@ -24,6 +24,7 @@ import NavLogin from './components/navbars/nav_login/NavLogin';
 import Register from './components/access_pages/register/Register';
 import UserLogin from './components/access_pages/user_login/UserLogin';
 import ForgotPassword from './components/access_pages/forgot_password/ForgotPassword';
+import FootHome from './components/footer/FootHome';
 
 class App extends React.Component {
 
@@ -64,6 +65,7 @@ class App extends React.Component {
             </Switch>
           </Row>
         </Container>
+        <FootHome/>
       </Router>
     );
   }
