@@ -1,0 +1,46 @@
+.footer{
+    position:absolute;
+    left:0;
+    bottom:0;
+    right:0;
+    background-color: #939393;
+}
+
+.list-group-item{
+    padding: 0;
+    float: left;
+    border: 0 !important;
+    margin: 0px;
+    background-color: #939393;
+}
+
+.about {
+    display: inline-block;
+    padding: 0 0 0 150px;
+}
+
+.games, .help{
+    display: inline-block;
+    padding: 0 0 0 150px;
+}
+
+.title{
+    font-weight: bold;
+    font-size: x-large;
+    color: black;
+    padding-left: 10px;
+}
+
+.trade{
+    color: #0E7A0D;
+}
+
+.colname{
+    color: black;
+}
+
+.coltitle{
+     color: black;
+    font-weight: bold;
+}
+
