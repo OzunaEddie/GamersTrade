@@ -6,7 +6,7 @@ export default class NavSurfer extends React.Component {
 
     render(){
         return(
-            <Card className = "footer">
+            <Card.Footer className = "card-footer">
               <Card.Body>
                   <footer className="blockquote-footer">
                       <h8 className="title">Gamers<h8 className="trade">Trade</h8></h8>
@@ -39,7 +39,7 @@ export default class NavSurfer extends React.Component {
                       </div>
                   </footer>
               </Card.Body>
-            </Card>
+            </Card.Footer>
         )
     }
 }
