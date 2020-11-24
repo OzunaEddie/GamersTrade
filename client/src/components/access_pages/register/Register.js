@@ -78,7 +78,7 @@ export default class Register extends React.Component {
   render() {
     return (
       <div className="center mw-50">
-        <Container className="container-bg rounded px-5 py-4 mx-4">
+        <Container className="container-bg rounded px-5 py-4 mx-4" >
           <h2 className="text-dark text-center font-weight-bold">Register for a Gamers<mark class="green">Trade</mark> Account</h2>
           {this.state.errors.length > 0 ?
             this.state.errors.map((error, index) => {
