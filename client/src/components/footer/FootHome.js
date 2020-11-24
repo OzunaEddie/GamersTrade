@@ -6,9 +6,9 @@ export default class NavSurfer extends React.Component {
 
     render(){
         return(
-            <Card.Footer className = "card-footer">
+            <Card.Footer className="card-footer">
               <Card.Body>
-                  <footer className="blockquote-footer">
+                  <footer className="blockquote-footer py-2">
                       <h8 className="title">Gamers<h8 className="trade">Trade</h8></h8>
                       <div className="about">
                         <Card.Text className="coltitle">ABOUT</Card.Text>

@@ -64,8 +64,8 @@ class App extends React.Component {
               <Route exact from="/" to="/home" component={Home} />
             </Switch>
           </Row>
-          <FootHome/>
         </Container>
+        <FootHome/>
       </Router>
     );
   }
