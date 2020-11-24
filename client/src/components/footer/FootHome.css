@@ -1,9 +1,9 @@
 .card-footer{
     background-color: #939393;
-    position: relative;
-    bottom: 0 !important;
-    width: 100%;
-    clear: both;
+    bottom: 0;
+    right:0;
+    left: 0;
+    position: absolute;
 }
 
 .list-group-item{
@@ -11,17 +11,20 @@
     float: left;
     border: 0 !important;
     margin: 0px;
+    font-size: medium;
     background-color: #939393;
 }
 
 .about {
     display: inline-block;
     padding: 0 0 0 150px;
+    font-size: medium;
 }
 
 .games, .help{
     display: inline-block;
     padding: 0 0 0 150px;
+    font-size: medium;
 }
 
 .title{
