@@ -1,5 +1,5 @@
 import React from 'react';
-import {Card, ListGroup,ListGroupItem} from 'react-bootstrap';
+import {Card, ListGroup,ListGroupItem, Col} from 'react-bootstrap';
 import './FootHome.css';
 
 export default class NavSurfer extends React.Component {
@@ -19,12 +19,11 @@ export default class NavSurfer extends React.Component {
                             <ListGroupItem className="list-group-item"><Card.Link className="colname" href="#">Contact Us</Card.Link></ListGroupItem>
                         </ListGroup>
                       </div>
-
                       <div className="games">
                         <Card.Text className="coltitle">GAMES BY SYSTEM</Card.Text>
                         <ListGroup className="list-group-flush">
-                            <ListGroupItem className="list-group-item"><Card.Link className="colname" href="#">XBOX 360</Card.Link>       <Card.Link className="colname" href="#">PC</Card.Link>  <Card.Link className="colname" href="#">PS3</Card.Link></ListGroupItem>
-                            <ListGroupItem className="list-group-item"><Card.Link className="colname" href="#">XBOX ONE</Card.Link><Card.Link className="colname" href="#">PS4</Card.Link> <Card.Link className="colname" href="#">PS5</Card.Link></ListGroupItem>
+                            <ListGroupItem className="list-group-item"><Card.Link className="colname" href="#">XBOX 360</Card.Link>       <Card.Link className="colname" href="#">PC</Card.Link>            <Card.Link className="colname" href="#">PS3</Card.Link></ListGroupItem>
+                            <ListGroupItem className="list-group-item"><Card.Link className="colname" href="#">XBOX ONE</Card.Link><Card.Link className="colname" href="#">PS4</Card.Link><Card.Link className="colname" href="#">PS5</Card.Link></ListGroupItem>
                             <ListGroupItem className="list-group-item"><Card.Link className="colname" href="#">SWITCH</Card.Link></ListGroupItem>
                         </ListGroup>
                       </div>

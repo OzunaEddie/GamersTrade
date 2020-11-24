@@ -17,11 +17,17 @@
 
 .about {
     display: inline-block;
-    padding: 0 0 0 150px;
+    padding: 0 0 0 140px;
     font-size: medium;
 }
 
-.games, .help{
+.games{
+    display: inline-block;
+    padding: 0 0 0 100px;
+    font-size: medium;
+}
+
+.help{
     display: inline-block;
     padding: 0 0 0 150px;
     font-size: medium;
@@ -32,6 +38,8 @@
     font-size: x-large;
     color: black;
     padding-left: 10px;
+    display: inline-block;
+    vertical-align: top;
 }
 
 .trade{
@@ -40,6 +48,7 @@
 
 .colname{
     color: black;
+    horiz-align: right;
 }
 
 .coltitle{
