@@ -59,7 +59,7 @@ export default class UserLogin extends React.Component {
           
           <Col>
           <Form className="loginForm" onSubmit={this.handleSubmit}>
-          <h2 className="text-dark text-center">Login to GamersTrade</h2>
+          <h2 className="text-dark text-center">Login to Gamers<span className="trade">Trade</span></h2>
           <ul data-testid="errors">
             { this.state.errors.length > 0 &&
               this.state.errors.map((error,index) => {
