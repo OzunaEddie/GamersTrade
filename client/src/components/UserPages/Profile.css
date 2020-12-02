@@ -1,0 +1,27 @@
+.profileDescription {
+  color: #0069B6;
+}
+
+.profileImg {
+  border-radius: 50%;
+  background: #0069B6;
+  width: 150px;
+}
+
+.profile-forms {
+  background-color: #DCDCDC;
+}
+
+.profile-forms:focus {
+  background-color: white;
+}
+
+.saveChangesBtn {
+  background-color: #0E7A0D;
+  border-color: #0E7A0D;
+}
+
+.saveChangesBtn:hover {
+  background-color: #069701;
+  border-color: #069701;
+}
