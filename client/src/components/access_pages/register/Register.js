@@ -3,6 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import './Register.css'
+import api from '../../API/api'
 
 export default class Register extends React.Component {
 
@@ -52,24 +53,11 @@ export default class Register extends React.Component {
     if (newState.errors.length === 0) {
       // Insert Backend Here.
       const data = this.state
-      fetch('/auth/register', {
-        method: 'POST',
-        headers: {
-          'Content-type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      }).then((response) => {
-        return response.json();
-      }).then((response) => {
-
-        if (response['registered']) {
-          this.props.history.push('/Login')
-        } else {
-          this.setState(({ errors }) => ({
-            errors: errors.concat(response['error'])
-          }));
-
-        }
+      const API = new api();
+      API.register(data).then(error => {
+        this.setState(({errors}) => ({
+          errors: errors.concat(error)
+        }));
       })
     }
     this.setState(newState);
