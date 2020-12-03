@@ -20,11 +20,16 @@ import Ps5 from './components/consoles/ps5/Ps5';
 import Pc from './components/consoles/pc/Pc';
 import Switchc from './components/consoles/switch/Switch';
 import NavHome from './components/navbars/nav_home/NavHome';
+import NavUser from './components/navbars/nav_user/NavUser';
 import NavLogin from './components/navbars/nav_login/NavLogin';
 import Register from './components/access_pages/register/Register';
 import UserLogin from './components/access_pages/user_login/UserLogin';
 import ForgotPassword from './components/access_pages/forgot_password/ForgotPassword';
-
+import FootHome from "./components/footer/FootHome";
+import Games from './components/main_pages/ListGames/ListGames';
+import Cookies from 'universal-cookie';
+import Profile from "./components/UserPages/Profile/Profile";
+import HelpCenter from "./components/UserPages/HelpCenter/HelpCenter";
 class App extends React.Component {
 
   changeNav = (path) => {
@@ -34,7 +39,12 @@ class App extends React.Component {
       case '/register':
         return <NavLogin/>
       default:
-        return <NavHome />
+        const cookies = new Cookies();
+        if (cookies.get('token')){
+          return <NavUser/>
+        }else{
+          return <NavHome/>
+        }
     }
     
   }
@@ -46,9 +56,12 @@ class App extends React.Component {
         <Container fluid>
           <Row className="justify-content-center">
             <Switch>
-              <Route path="/buy" component={Buy} />
-              <Route path="/trade" component={Trade} />
-              <Route path="/sell" component={Sell} />
+              <Route exact path="/Buy" component={Buy} />
+              <Route exact path="/Buy/:id" component={Games} />
+              <Route exact path="/Sell" component={Sell} />
+              <Route exact path="/Sell/:id" component={Games} />
+              <Route exact path="/Trade" component={Trade} />
+              <Route exact path="/Trade/:id" component={Games} />
               <Route path="/xbox" component={Xbox} />
               <Route path="/xbox360" component={Xbox360} />
               <Route path="/xboxone" component={XboxOne} />
@@ -60,10 +73,13 @@ class App extends React.Component {
               <Route path="/register" component={Register} />
               <Route path="/login" component={UserLogin} />
               <Route path="/forgotpassword" component={ForgotPassword} />
+              <Route path="/profile" component={Profile} />
+              <Route path="/help" component={HelpCenter} />
               <Route exact from="/" to="/home" component={Home} />
             </Switch>
           </Row>
         </Container>
+        <FootHome/>
       </Router>
     );
   }

@@ -1,0 +1,36 @@
+.leftLine {
+  float: left;
+  border-left: 2px solid green;
+  height: 500px;
+  margin-top: 100px;
+}
+
+.rightLine {
+    top: 0;
+    float: right;
+    border-left: 2px solid green;
+    height: 500px;
+    margin-left: 300px;
+    margin-top: 100px;
+  }
+
+.loginForm{
+    width: 110%;
+    margin-left: 100px;
+    margin-top: 100px;
+    margin-bottom: 300px;
+  
+}
+
+.btn-signup {
+    text-decoration: none;
+}
+
+
+.btn-signup:hover {
+    text-decoration: none;
+}
+.rightForm{
+    margin-top: 100px;
+    margin-left: 100px;
+}

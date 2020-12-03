@@ -1,0 +1,12 @@
+# Python Files
+__pycache__/
+
+__init__.pyc
+
+# testing
+coverage.xml
+.coverage
+
+# misc
+.DS_Store
+.env

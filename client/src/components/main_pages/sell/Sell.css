@@ -1,0 +1,20 @@
+.img {
+  background: #0069B6;
+  width: 150px;
+  margin-bottom: 10px;
+}
+
+.sell-forms {
+  background-color: #DCDCDC;
+}
+
+.sellBtn {
+  background-color: #0E7A0D;
+  border-color: #0E7A0D;
+  float: right;
+}
+
+.sellBtn:hover {
+  background-color: #069701;
+  border-color: #069701;
+}
