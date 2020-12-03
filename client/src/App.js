@@ -28,7 +28,8 @@ import ForgotPassword from './components/access_pages/forgot_password/ForgotPass
 import FootHome from "./components/footer/FootHome";
 import Games from './components/main_pages/ListGames/ListGames';
 import Cookies from 'universal-cookie';
-import Profile from "./components/UserPages/Profile";
+import Profile from "./components/UserPages/Profile/Profile";
+import HelpCenter from "./components/UserPages/HelpCenter/HelpCenter";
 class App extends React.Component {
 
   changeNav = (path) => {
@@ -73,6 +74,7 @@ class App extends React.Component {
               <Route path="/login" component={UserLogin} />
               <Route path="/forgotpassword" component={ForgotPassword} />
               <Route path="/profile" component={Profile} />
+              <Route path="/help" component={HelpCenter} />
               <Route exact from="/" to="/home" component={Home} />
             </Switch>
           </Row>
