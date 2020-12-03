@@ -27,7 +27,6 @@ export default class Home extends React.Component {
          <Row className="my-4 mx-3 p-4 justify-content-center bg-darkgreen text-black">
           <Col md="auto" className="d-none d-md-block">
           </Col>
-          <searchBar/>
           <Form onSubmit={this.handleSubmit}>
                   <InputGroup className="searchbar pt-4">
                     <FormControl id="inlineFormInputGroup" placeholder="Search" onChange={this.handleChange("search")} />
