@@ -31,6 +31,9 @@ import Cookies from 'universal-cookie';
 import Profile from "./components/UserPages/Profile/Profile";
 import HelpCenter from "./components/UserPages/HelpCenter/HelpCenter";
 import TransactionHistory from "./components/UserPages/TransactionHistory/TransactionHistory";
+import TradeGuarantee from "./components/ExtraPages/TradeGuarantee";
+import TermAgreement from "./components/ExtraPages/TermAgreement";
+import PrivacyPolicy from "./components/ExtraPages/PrivacyPolicy";
 class App extends React.Component {
 
   changeNav = (path) => {
@@ -79,7 +82,11 @@ class App extends React.Component {
               <Route path="/howitworks" component={HelpCenter} />
               <Route path="/about" component={HelpCenter} />
               <Route path="/contact" component={HelpCenter} />
+              <Route path="/FAQs" component={HelpCenter} />
               <Route path="/transaction" component={TransactionHistory} />
+              <Route path="/tradeguarantee" component={TradeGuarantee} />
+              <Route path="/termagreement" component={TermAgreement} />
+              <Route path="/privacypolicy" component={PrivacyPolicy} />
               <Route exact from="/" to="/home" component={Home} />
             </Switch>
           </Row>
