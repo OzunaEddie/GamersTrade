@@ -75,7 +75,7 @@ export default class Home extends React.Component {
                     <Card.Text>
                       Price: {this.state.game.price}
                     </Card.Text>
-                    <Button variant="light" className="chooseBtn" type = "submit" onClick="" >Buy</Button>{' '} <Button variant="light" className="chooseBtn" type = "submit" onClick="" >Sell</Button>{' '}  <Button variant="light" className="chooseBtn" type = "submit" onClick="">Trade</Button>
+                    <Button variant="light" className="chooseBtn" href="/Buy" >Buy</Button>{' '} <Button variant="light" className="chooseBtn" href="/Sell" >Sell</Button>{' '}  <Button variant="light" className="chooseBtn" href="/Trade">Trade</Button>
                     </ListGroupItem>
                   </ListGroup>
             </Card>
