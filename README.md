@@ -87,7 +87,8 @@ Here's an [example](https://www.kauligmedia.com/media/1589/sitemap-01.jpg). Most
 (___TODO__: List any tutorials or material referenced that you've based your code off of_)
 
 ## Authors
-Eddie Ozuna
-Kevin Alvarez
-Sandy Qiu
-Moshe Oppenheim
+
+1. Eddie Ozuna
+2. Kevin Alvarez
+3. Sandy Qiu
+4. Moshe Oppenheim
