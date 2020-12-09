@@ -76,9 +76,7 @@ An Example `OrderItems`:
 
 ## Site map
 
-(___TODO__: Draw out a site map that shows how pages are related to each other_)
-
-Here's an [example](https://www.kauligmedia.com/media/1589/sitemap-01.jpg). Mostly looking for the names of pages and where they flow to.
+<img src='Site_Map.png' title='Site Map for GamersTrade' width='800' alt='' />
 
 ## User Stories or Use Cases
 
@@ -93,8 +91,6 @@ Here's an [example](https://www.kauligmedia.com/media/1589/sitemap-01.jpg). Most
 9. As a user, I want to be able to buy items from other users. 
 
 ## References Used
-
-(___TODO__: List any tutorials or material referenced that you've based your code off of_)
 
 1. [React Bootstrap](https://react-bootstrap.netlify.app/getting-started/introduction/)
 2. [Eddie's Project From Other Course](https://github.com/The-Sciences-and-Engineering-Squad/Marketext)
