@@ -97,6 +97,7 @@ Here's an [example](https://www.kauligmedia.com/media/1589/sitemap-01.jpg). Most
 (___TODO__: List any tutorials or material referenced that you've based your code off of_)
 
 1. [React Bootstrap](https://react-bootstrap.netlify.app/getting-started/introduction/)
+2. [Eddie's Project From Other Course](https://github.com/The-Sciences-and-Engineering-Squad/Marketext)
 
 ## Authors
 
