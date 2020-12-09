@@ -13,8 +13,8 @@ GamersTrade is an application that allows users to buy, sell, or trade games and
 
 ## Requirements
 
-(___TODO__: List out any technologies needed to run your project_)
-
+1. [Python 3](https://www.python.org/downloads/)
+2. [MySQL](https://www.mysql.com/downloads/)
 
 ## Data Model
 
@@ -91,7 +91,7 @@ Here's an [example](https://www.kauligmedia.com/media/1589/sitemap-01.jpg). Most
 
 ## Authors
 
-1. Eddie Ozuna
-2. Kevin Alvarez
-3. Sandy Qiu
-4. Moshe Oppenheim
+Eddie Ozuna\
+Kevin Alvarez\
+Sandy Qiu\
+Moshe Oppenheim
