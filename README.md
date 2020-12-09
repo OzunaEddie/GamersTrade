@@ -76,7 +76,7 @@ An Example `OrderItems`:
 
 ## Site map
 
-<img src='Site_Map.png' title='Site Map for GamersTrade' width='800' alt='' />
+<img src='Site_Map.png' title='Site Map for GamersTrade' width='500' height='400' alt='' />
 
 ## User Stories or Use Cases
 
