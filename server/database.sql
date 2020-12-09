@@ -26,3 +26,15 @@ CREATE TABLE Profile(
     userId INT NOT NULL,
     FOREIGN KEY (userId) REFERENCES User(userId)
 );
+
+CREATE TABLE Listings(
+    listingId INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    userId INT NOT NULL,
+    gameId INT NOT NULL,
+    price DECIMAL(8,2) NOT NULL,
+    console VARCHAR(255) NOT NULL,
+    condition VARCHAR(255),
+    additionalNotes VARCHAR(255),
+    buyOrTrade ENUM('buy','trade')
+    FOREIGN KEY (userId) REFERENCES User(userId)
+);
