@@ -3,7 +3,8 @@
 
 ## Overview
 
-(___TODO__: A brief one or two paragraph, high-level description of your project_)
+GamersTrade is an application that allows users to buy, sell, or trade games and consoles from other users. Users of the platform have the ability to post the game(s) or console(s) they would like to sell, trade, or buy. If they wish, potential buyers or traders can privately communicate with the seller or traders to negotiate on the price or deal. To utilize this platform, the user must create an account to conduct any transaction.
+
 
 
 ## Getting Started
