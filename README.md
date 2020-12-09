@@ -7,7 +7,7 @@ GamersTrade is an application that allows users to buy, sell, or trade games and
 
 * **Sell**: Users are given the ability to post the items that they wish to sell on the platform and set a fixed price on the item and state the condition (old, good, new, etc.) the item is in.
 
-* **Buy**: Users who will be able to buy any available item that they are interested in and can contact the buyer if they wish to negotiate on the price . They can also browse for games based on genre, price, console, or condition as well as browse through consoles and accessories. 
+* **Buy**: Users who will be able to buy any available item that they are interested in and can contact the buyer if they wish to negotiate on the price. They can also browse for games based on genre, price, console, or condition as well as browse through consoles and accessories. 
 
 * **Trade**: Users will be given the ability to trade games with potential traders that have posted games for trade and can contact the trader if they wish to negotiate on the deal. They can browse for games based on genre, price, console, or condition as well as browse through consoles and accessories. 
 
