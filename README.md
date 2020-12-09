@@ -72,17 +72,22 @@ Here's an [example](https://www.kauligmedia.com/media/1589/sitemap-01.jpg). Most
 
 ## User Stories or Use Cases
 
-(___TODO__: Write out how your application will be used through [user stories](http://en.wikipedia.org/wiki/User_story#Format)_)
-
-1. As non-registered user, I can create a new account on the site.
-2. As a user, I can log in to the site.
-3. As a user, I can view items for sale.
-4. As a user, I can add items to a shopping cart.
-5. as a user, I can remove items from a shopping cart.
-6. as a user, I can purchase items in my cart.
+1. As a user, I want to be able to negotiate prices with other sellers. 
+2. As a user, I want to be able to search for items based on my interests.
+3. As a user, I want to be able to register and log in.
+4. As a user, I want to be able to sell my items to other users.
+5. As a user, I want to be able to trade games with other users.
+6. As a user, I want to communicate with sellers and traders privately.
+7. As a user, I want to be able to post the games I want to sell.
+8. As a user, I want to be able to post the games I want to trade.
+9. As a user, I want to be able to buy items from other users. 
 
 ## References Used
 
 (___TODO__: List any tutorials or material referenced that you've based your code off of_)
 
 ## Authors
+Eddie Ozuna
+Kevin Alvarez
+Sandy Qiu
+Moshe Oppenheim
