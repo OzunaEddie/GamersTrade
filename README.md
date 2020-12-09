@@ -24,6 +24,7 @@ You will also see any lint errors in the console.
 
 1. [Python 3](https://www.python.org/downloads/)
 2. [MySQL](https://www.mysql.com/downloads/)
+3. requirements.txt file is provided for modules/libraries needed
 
 ## Data Model
 
