@@ -39,3 +39,15 @@ CREATE TABLE Listings(
     sold BOOLEAN DEFAULT false,
     FOREIGN KEY (userId) REFERENCES User(userId)
 );
+
+CREATE TABLE Transaction (
+    transactionId INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    listingId INT NOT NULL,
+    sellerId INT NOT NULL,
+    buyerId INT NOT NULL,
+    price INT NOT NULL,
+    transactionDate VARCHAR(255) NOT NULL,
+    FOREIGN KEY (listingId) REFERENCES Listings(listingId),
+    FOREIGN KEY (sellerId) REFERENCES User(userId),
+    FOREIGN KEY (buyerId) REFERENCES User(userId)
+)
