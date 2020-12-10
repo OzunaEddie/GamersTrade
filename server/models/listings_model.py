@@ -1,9 +1,11 @@
 from server import db
 from hashlib import md5
 
+
 # Listings table
 class ListingsModel:
-    def __init__(self,listingId=None,gameId=None,userId=None,price=None,console=None,condition=None,additionalNotes=None,buyOrTrade=None):
+    def __init__(self, listingId=None, gameId=None, userId=None, price=None, console=None, condition=None,
+                 additionalNotes=None, sold=False, buyOrTrade=None):
         self.database = db.connection
         self.dataCur = db.connection.cursor()
         self.listingId = listingId
@@ -13,6 +15,7 @@ class ListingsModel:
         self.console = None
         self.condition = None
         self.additionalNotes = None
+        self.sold = False
         self.buyOrTrade = None
 
         if listingId is not None:
@@ -23,7 +26,9 @@ class ListingsModel:
                 self.gameId = results['gameId']
                 self.price = results['price']
                 self.console = results['console']
-                self.additionalNotes= results['additionalNotes']
+                self.condition = results['condition']
+                self.additionalNotes = results['additionalNotes']
+                self.sold = results['sold']
                 self.buyOrTrade = results['buyOrTrade']
 
     def getListingId(self):
@@ -50,32 +55,45 @@ class ListingsModel:
     def getBuyOrTrade(self):
         return self.buyOrTrade
 
-    def getListingsForConsole(self,console):
+    def getIsSold(self):
+        return self.sold
+
+    def getListingsForConsole(self, console):
         self.dataCur.execute(
             'SELECT * FROM Listings WHERE console = ' + "'" + console + "'"
         )
         return self.dataCur.fetchall()
 
-    def getListingsForGame(self,gameId,console):
+    def getListingsForGame(self, gameId, console, sold=False):
         if console is not None:
             self.dataCur.execute(
-                'SEELCT * FROM Listings WHERE gameId = ' + str(gameId) + ' AND console = ' + str(console)
+                'SEELCT * FROM Listings WHERE gameId = ' + str(gameId) + ' AND console = ' + str(
+                    console) + 'AND sold = ' + str(sold)
             )
         else:
             self.dataCur.execute(
-                'SELECT * FROM Listings WHERE gameId = ' + str(gameId)
+                'SELECT * FROM Listings WHERE gameId = ' + str(gameId) + ' AND sold = ' + str(sold)
             )
         return self.dataCur.fetchall()
 
     def insertListing(self):
         self.dataCur.execute(
-            'INSERT INTO Listings (userId,gameId,price,console,additionalNotes) VALUES (' + "'" + self.userId+ "'," + "'" + self.gameId+ "'," + "'" + self.price+ "'," + '  )')
+            'INSERT INTO Listings (userId,gameId,price,console,condition,additionalNotes,sold,buyOrTrade) VALUES (' \
+            + "'" + self.userId
+            + "'," + "'" + self.gameId \
+            + "'," + "'" + str(self.price) \
+            + "'," + "'" + self.console \
+            + "'," + "'" + self.condition \
+            + "'," + "'" + self.additionalNotes \
+            + "'," + "'" + self.sold \
+            + "'," + "'" + self.buyOrTrade \
+            + '  )')
         self.database.commit()
 
-
     def updateField(self, field, attribute):
-        self.dataCur.execute('UPDATE Listings Set ' + field + ' = ' + "'" + attribute + "'" + "WHERE listingId = " + "'" + str(
-            self.listingId) + "'")
+        self.dataCur.execute(
+            'UPDATE Listings Set ' + field + ' = ' + "'" + attribute + "'" + "WHERE listingId = " + "'" + str(
+                self.listingId) + "'")
         self.database.commit()
 
     def isExist(self, field, attribute):
