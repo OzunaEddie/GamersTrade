@@ -35,6 +35,7 @@ CREATE TABLE Listings(
     console VARCHAR(255) NOT NULL,
     condition VARCHAR(255),
     additionalNotes VARCHAR(255),
-    buyOrTrade ENUM('buy','trade')
+    buyOrTrade ENUM('buy','trade'),
+    sold BOOLEAN DEFAULT false,
     FOREIGN KEY (userId) REFERENCES User(userId)
 );
