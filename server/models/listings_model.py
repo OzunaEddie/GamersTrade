@@ -7,7 +7,7 @@ class ListingsModel:
     def __init__(self, listingId=None, gameId=None, userId=None, price=None, console=None, condition=None,
                  additionalNotes=None, sold=False, buyOrTrade=None):
         self.database = db.connection
-        self.dataCur = db.connection.cursor()
+        self.dataCur = db.connection.cursor(dictionary=True)
         self.listingId = listingId
         self.userId = None
         self.gameId = None
@@ -88,6 +88,13 @@ class ListingsModel:
             + "'," + "'" + self.sold \
             + "'," + "'" + self.buyOrTrade \
             + '  )')
+        self.database.commit()
+
+    def removeListing(self, listingId=None):
+        if listingId:
+            self.dataCur.execute("DELETE FROM Listings WHERE listingId=%s", (str(listingId)))
+        else:
+            self.dataCur.execute("DELETE FROM Listings WHERE listingId=%s", (str(self.listingId)))
         self.database.commit()
 
     def updateField(self, field, attribute):
