@@ -55,14 +55,14 @@ class TransactionModel:
 
     def getTransactionBySeller(self, sellerId):
         self.dataCur.execute(
-            'SELECT * FROM Transaction WHERE sellerId= ' + "'" + str(sellerId)
+            'SELECT * FROM Transaction WHERE sellerId=%s', str(sellerId)
         )
         results = self.dataCur.fetchall()
         return results
 
     def getTransactionByBuyer(self, buyerId):
         self.dataCur.execute(
-            'SELECT * FROM Transaction WHERE buyerId= ' + "'" + str(buyerId)
+            'SELECT * FROM Transaction WHERE buyerId=%s', str(buyerId)
         )
         results = self.dataCur.fetchall()
         return results
