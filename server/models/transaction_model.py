@@ -48,8 +48,8 @@ class TransactionModel:
             + "'" + str(listingId)
             + "'," + "'" + str(sellerId) \
             + "'," + "'" + str(buyerId) \
-            + "'," + "'" + str(price) \
-            + "', NOW()" \
+            + "', " + str(price) \
+            + ", NOW()" \
             + '  )')
         self.database.commit()
 
