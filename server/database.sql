@@ -46,7 +46,7 @@ CREATE TABLE Transaction (
     sellerId INT NOT NULL,
     buyerId INT NOT NULL,
     price INT NOT NULL,
-    transactionDate VARCHAR(255) NOT NULL,
+    transactionDate DATETIME NOT NULL,
     FOREIGN KEY (listingId) REFERENCES Listings(listingId),
     FOREIGN KEY (sellerId) REFERENCES User(userId),
     FOREIGN KEY (buyerId) REFERENCES User(userId)

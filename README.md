@@ -35,10 +35,12 @@ You will also see any lint errors in the console.
 
 (___TODO__: A description of your application's data and their relationships to each other_)
 
-The application will store user, items, and orders.
+The application will store user, profile, listings and transactions.
 
-- Users can have many orders.
-- Orders can have many items.
+- User contains basic information about user.
+- Profiles contain more information about user.
+- Listings are individual game listings posted by users.
+- Transactions keep track of listings that have been purchased or traded.
 
 (___TODO__: Sample resources_)
 
@@ -46,37 +48,58 @@ An Example `User`:
 
 ```javascript
 {
-  id: 5,
-  firstName: "Mary",
-  lastName: "Jane"
+  userId: 5,
+  userName: "MaryJane",
+  password: "JanesPassword123"
+  email: "maryjanedoe123@fakeemail.com
+  verified: 1
+  registrationDate: '2020-12-25 12:00:00'
 }
 ```
 
-An Example `Item`:
+An Example `Profile`:
 
 ```javascript
 {
-  id: 3,
+  profileId: 3,
+  firstName: "Mary"
+  lastName: "Jane"
+  phoneNumber: "555-555-5555"
+  city: "Manhattan"
+  state: "New York"
+  country: "United States"
   name: "Lamp",
   price: "$19.99"
+  zipcode: 10100
+  userId: 5 // Reference to User table
 }
 ```
 
-An Example `Order`:
+An Example `Listing`:
 
 ```javascript
 {
-  id: 1,
-  user_id: 5,// a reference to a User object
+  listingId: 1,
+  userId: 5 // Reference to User table
+  gameId: 25 // Reference to game API
+  price: 25.99
+  condition: "NEW"
+  additionalNotes: "Never opened before"
+  buyOrTrade: "buy"
+  sold: false
 }
 ```
 
-An Example `OrderItems`:
+An Example `Transaction`:
 
 ```javascript
 {
-  item_id: 3,
-  order_id: 1 // References an Order object
+  transactionId: 1
+  listingId: 1 // Reference to Listings table
+  sellerId: 10 // Reference to User table
+  buyerId: 5 // Reference to User table
+  price: 35.99
+  transactionDate: '2020-12-25 12:01:00
 }
 ```
 
