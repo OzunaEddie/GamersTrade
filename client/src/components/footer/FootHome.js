@@ -13,10 +13,10 @@ export default class NavSurfer extends React.Component {
                       <div className="about">
                         <Card.Text className="coltitle">ABOUT</Card.Text>
                         <ListGroup className="list-group-flush">
-                            <ListGroupItem className="list-group-item"><Card.Link className="colname" href="/help">How it Works</Card.Link></ListGroupItem>
-                            <ListGroupItem className="list-group-item"><Card.Link className="colname" href="#">Trade Guarantee</Card.Link></ListGroupItem>
-                            <ListGroupItem className="list-group-item"><Card.Link className="colname" href="#">About Us</Card.Link></ListGroupItem>
-                            <ListGroupItem className="list-group-item"><Card.Link className="colname" href="#">Contact Us</Card.Link></ListGroupItem>
+                            <ListGroupItem className="list-group-item"><Card.Link className="colname" href="/howitworks">How it Works</Card.Link></ListGroupItem>
+                            <ListGroupItem className="list-group-item"><Card.Link className="colname" href="/tradeguarantee">Trade Guarantee</Card.Link></ListGroupItem>
+                            <ListGroupItem className="list-group-item"><Card.Link className="colname" href="/about">About Us</Card.Link></ListGroupItem>
+                            <ListGroupItem className="list-group-item"><Card.Link className="colname" href="/contact">Contact Us</Card.Link></ListGroupItem>
                         </ListGroup>
                       </div>
                       <div className="games">
@@ -31,9 +31,9 @@ export default class NavSurfer extends React.Component {
                       <div className="help">
                         <Card.Text className="coltitle">HELP & SUPPORT</Card.Text>
                         <ListGroup className="list-group-flush">
-                            <ListGroupItem className="list-group-item"><Card.Link className="colname" href="#">FAQs</Card.Link></ListGroupItem>
-                            <ListGroupItem className="list-group-item"><Card.Link className="colname" href="#">Terms and Conditions</Card.Link></ListGroupItem>
-                            <ListGroupItem className="list-group-item"><Card.Link className="colname" href="#">Privacy Policy</Card.Link></ListGroupItem>
+                            <ListGroupItem className="list-group-item"><Card.Link className="colname" href="/FAQs">FAQs</Card.Link></ListGroupItem>
+                            <ListGroupItem className="list-group-item"><Card.Link className="colname" href="/termagreement">Terms and Conditions</Card.Link></ListGroupItem>
+                            <ListGroupItem className="list-group-item"><Card.Link className="colname" href="/privacypolicy">Privacy Policy</Card.Link></ListGroupItem>
                         </ListGroup>
                       </div>
                   </footer>
