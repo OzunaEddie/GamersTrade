@@ -33,16 +33,12 @@ You will also see any lint errors in the console.
 
 ## Data Model
 
-(___TODO__: A description of your application's data and their relationships to each other_)
-
 The application will store user, profile, listings and transactions.
 
 - User contains basic information about user.
 - Profiles contain more information about user.
 - Listings are individual game listings posted by users.
 - Transactions keep track of listings that have been purchased or traded.
-
-(___TODO__: Sample resources_)
 
 An Example `User`:
 
