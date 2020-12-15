@@ -16,7 +16,7 @@ import jwt
 import datetime
 from server.controllers.token import token_required
 
-bp = Blueprint('listings', __name__)
+bp = Blueprint('listings', __name__, url_prefix='/listings')
 
 
 @bp.route('/showListings', methods=['GET', 'POST'])
