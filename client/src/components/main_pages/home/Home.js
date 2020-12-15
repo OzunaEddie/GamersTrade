@@ -11,7 +11,7 @@ export default class Home extends React.Component {
 
   componentDidMount() {
     // Insert Backend Call For Textbooks When Nothing is on Search
-    fetch('https://rawg.io/api/games?page_size=100')
+    fetch('https://rawg.io/api/games?page_size=1000')
     .then(response => response.json())
     .then(result => {
       console.log(result)
