@@ -21,8 +21,16 @@ CREATE TABLE Profile(
     street VARCHAR(255) NOT NULL,
     city VARCHAR(255) NOT NULL,
     state VARCHAR(255) NOT NULL,
-    country VARCHAR(255) NOT NULL,
     zipCode INT NOT NULL,
+    userId INT NOT NULL,
+    FOREIGN KEY (userId) REFERENCES User(userId)
+);
+
+CREATE TABLE UserPayment(
+    paymentId INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    cardNumber VARCHAR(255) NOT NULL,
+    CVV VARCHAR(255) NOT NULL,
+    ExpirationDate VARCHAR(255) NOT NULL,
     userId INT NOT NULL,
     FOREIGN KEY (userId) REFERENCES User(userId)
 );

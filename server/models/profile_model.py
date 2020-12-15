@@ -25,7 +25,6 @@ class ProfileModel:
                 self.street = results['street']
                 self.city = results['city']
                 self.state = results['state']
-                self.country = results['country']
                 self.zipCode = results['zipCode']
 
     def setFirstName(self,firstName):
@@ -67,8 +66,7 @@ class ProfileModel:
     def getState(self):
         return self.state 
 
-    def getCountry(self):
-        return self.country 
+
 
     def getZipCode(self):
         return self.zipCode 
@@ -76,7 +74,13 @@ class ProfileModel:
     def updateField(self,field,attribute):
         self.dataCur.execute('UPDATE Profile Set ' + field + ' = ' + "'" + attribute + "'" + "WHERE userId = " + "'" + str(self.userId) + "'")
         self.database.commit()
+
+    def paymentField(self,field,attribute):
+        self.dataCur.execute('UPDATE UserPayment Set ' + field + ' = ' + "'" + attribute + "'" + "WHERE userId = " + "'" + str(self.userId) + "'")
+        self.database.commit()
+
     
     def initProfile(self,userId):
-        self.dataCur.execute('INSERT INTO Profile(firstName,lastName,phoneNumber,street,city,state,country,zipCode,userId) VALUES (' +  " '','' , '', '', '', '','', '0', " +  "'" + str(userId) + "'" + ')')
+        self.dataCur.execute('INSERT INTO Profile(firstName,lastName,phoneNumber,street,city,state,zipCode,userId) VALUES (' +  " '','' , '', '', '','', '0', " +  "'" + str(userId) + "'" + ')')
+        self.dataCur.execute('INSERT INTO UserPayment(cardNumber,CVV,ExpirationDate,userId) VALUES (' +  " '','' , '', " +  "'" + str(userId) + "'" + ')')
         self.database.commit()

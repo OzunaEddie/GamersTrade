@@ -51,6 +51,16 @@ def updateProfile():
         if req['newPassword']:
             user.updateField('password',req['newPassword'])
 
+
+        if req['cardNumber']:
+            userProfile.paymentField('cardNumber',req['cardNumber'])
+
+        if req['CVV']:
+            userProfile.paymentField('CVV',req['CVV'])
+
+        if req['expires']:
+            userProfile.paymentField('ExpirationDate',req['expires'])
+
         return json.dumps({'error': 'Updated'})
 
     return json.dumps({'error': 'Current Password is Incorrect'})
@@ -59,5 +69,5 @@ def updateProfile():
 @token_required
 def getProfile():
     userProfile = profile_model.ProfileModel(session['userId'])
-    profile = {'firstName': userProfile.getFirstName(),'lastName': userProfile.getLastName(), 'phoneNumber':userProfile.getPhoneNumber(), 'street': userProfile.getStreet(), 'city': userProfile.getCity(),'state': userProfile.getState(), 'country': userProfile.getCountry(), 'zipCode': userProfile.getZipCode()}
+    profile = {'firstName': userProfile.getFirstName(),'lastName': userProfile.getLastName(), 'phoneNumber':userProfile.getPhoneNumber(), 'street': userProfile.getStreet(), 'city': userProfile.getCity(),'state': userProfile.getState(), 'zipCode': userProfile.getZipCode()}
     return json.dumps({'profile': profile})
