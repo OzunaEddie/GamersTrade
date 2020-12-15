@@ -13,6 +13,7 @@ export default class Sell extends React.Component {
     super();
     const cookies = new Cookies()
     this.state = {
+      game: [],
       gameId: 0,
       console: '',
       price: 0.0,
@@ -23,6 +24,13 @@ export default class Sell extends React.Component {
       error: [],
       token: cookies.get('token'),
     };
+  }
+
+  componentDidMount() {
+    const game = JSON.parse(localStorage.getItem('game'));
+    this.setState({ game: game });
+    this.setState({ gameId: game.id })
+    localStorage.clear();
   }
   handleChange = (input) => (e) => {
     this.setState({ [input]: e.target.value });
@@ -73,7 +81,7 @@ export default class Sell extends React.Component {
           <Container fluid className="p-2 m-3">
             <Row className="justify-content-left mt-4">
               <Col xs="auto">
-                <Image className="img" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" />
+                <Image className="img" src={this.state.game.image} />
               </Col>
             </Row>
             <Form onSubmit={this.handleSubmit}>
