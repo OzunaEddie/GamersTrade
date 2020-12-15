@@ -11,17 +11,6 @@ import Cookies from 'universal-cookie';
 export default class Sell extends React.Component {
 
 
-  componentDidMount() {
-
-    // Change this to authenticate the user
-    // It currently gets the token and check if a username exist.
-    // If it exists then it is an authorized user.
-    const game = JSON.parse(localStorage.getItem('game'));
-    this.setState({ game: game });
-    localStorage.clear();
-  }
-
-
   constructor() {
     super();
     const cookies = new Cookies()
@@ -57,10 +46,7 @@ export default class Sell extends React.Component {
     if (this.state.price < 0.0) {
       this.state.error.push("Price must be greater than $0");
     }
-
-    console.log("BEFORE API");
     if (this.state.error.length == 0) {
-      console.log("DOING API");
       const API = new api();
       API.addListing(this.state);
     }
@@ -70,26 +56,6 @@ export default class Sell extends React.Component {
     return (
       // <div>Sell Page</div>
       <Container fluid>
-        <Row className="my-4 mx-3 p-4 justify-content-center bg-darkgreen text-black">
-          <Form onSubmit={this.handleSubmit}>
-            <InputGroup className="searchbar pt-4">
-              <FormControl id="inlineFormInputGroup" placeholder="Search" onChange={this.handleChange("search")} />
-              <InputGroup.Append>
-                <Form.Control as="select" defaultValue="All Systems" className="options">
-                  <option>All Systems</option>
-                  <option>XBOX 360</option>
-                  <option>XBOX ONE</option>
-                  <option>PC</option>
-                  <option>PS3</option>
-                  <option>PS4</option>
-                  <option>PS5</option>
-                  <option>SWITCH</option>
-                </Form.Control>
-              </InputGroup.Append>
-              <Button variant="outline-info" className="searchBtn" type="submit" onClick={this.handleSubmit}>Search</Button>
-            </InputGroup>
-          </Form>
-        </Row>
         <Row>
           <Container fluid className="p-2 m-3">
             <Row className="justify-content-left mt-4">

@@ -23,7 +23,15 @@ bp = Blueprint('listings', __name__, url_prefix='/listings')
 def showListingsForGame():
     listings = listings_model.ListingsModel()
     req = request.json
-    return json.dumps({'gameListings': listings.getListingsForGame(gameId=req['gameId'], console=req['console'])})
+    response = {'gameListings': []}
+    if (req['console'] == 'all'):
+        response['gameListings'] = listings.getListingsForGame(gameId=req['gameId'], console=None)
+    else:
+        response['gameListings'] = listings.getListingsForGame(gameId=req['gameId'], console=req['console'].lower())
+    for item in response['gameListings']:
+        item['userName'] = user_model.UserModel(userId=item['userId']).getUserName()
+        item['price'] = str(item['price'])
+    return json.dumps(response)
 
 
 @bp.route('/addListing', methods=['POST'])

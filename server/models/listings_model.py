@@ -67,12 +67,12 @@ class ListingsModel:
     def getListingsForGame(self, gameId, console, sold=False):
         if console is not None:
             self.dataCur.execute(
-                'SEELCT * FROM Listings WHERE gameId = ' + str(gameId) + ' AND console = ' + str(
-                    console) + 'AND sold = ' + str(sold)
+                'SELECT * FROM Listings WHERE gameId=%s AND console=%s AND sold=%s',(str(gameId),str(console),int(sold))
             )
         else:
             self.dataCur.execute(
-                'SELECT * FROM Listings WHERE gameId = ' + str(gameId) + ' AND sold = ' + str(sold)
+                'SELECT * FROM Listings WHERE gameId=%s AND sold=%s',
+                (str(gameId), int(sold))
             )
         return self.dataCur.fetchall()
 

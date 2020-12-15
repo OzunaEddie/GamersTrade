@@ -2,31 +2,43 @@ import React from 'react';
 import './Buy.css'
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import api from "../../API/api"
 import { Button, Card, Form, FormControl, InputGroup, ListGroup, ListGroupItem, Table } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
+import Cookies from 'universal-cookie';
 
 export default class Buy extends React.Component {
   componentDidMount() {
-
-   
     const game = JSON.parse(localStorage.getItem('game'));
     this.setState({ game: game });
+    this.setState({ gameId: game.id });
+    this.setState({ console: "all" });
     localStorage.clear();
   }
 
   constructor(props) {
     super(props);
+    const cookies = new Cookies()
     this.state = {
-      search: "",
+      console: "all",
       game: {},
-      price: "",
-      user: [],
-      rating: "",
+      gameId: 0,
+      gameListings: [],
+      lowestPrice: 0.0,
+      token: cookies.get('token'),
     };
   }
-  handleChange = (input) => (e) => { };
+  handleChange = (input) => (e) => {
+    this.setState({ [input]: e.target.value });
+  };
 
-  handleSubmit = (e) => { };
+  handleSubmit = (e) => {
+    e.preventDefault();
+    const API = new api();
+    API.getListings(this.state).then(gameListings => {
+      this.setState({ gameListings: gameListings });
+    });
+  };
 
   render() {
     return (
@@ -34,17 +46,17 @@ export default class Buy extends React.Component {
         <Row className="my-4 mx-3 p-4 justify-content-center bg-darkgreen text-black">
           <Form onSubmit={this.handleSubmit}>
             <InputGroup className="searchbar pt-4">
-              <FormControl id="inlineFormInputGroup" placeholder="Search" onChange={this.handleChange("search")} />
+              <FormControl id="inlineFormInputGroup" placeholder="Search" onChange={this.handleChange("console")} />
               <InputGroup.Append>
                 <Form.Control as="select" defaultValue="All Systems" className="options">
-                  <option>All Systems</option>
-                  <option>XBOX 360</option>
-                  <option>XBOX ONE</option>
-                  <option>PC</option>
-                  <option>PS3</option>
-                  <option>PS4</option>
-                  <option>PS5</option>
-                  <option>SWITCH</option>
+                  <option value="all">All Systems</option>
+                  <option value="xbox 360">XBOX 360</option>
+                  <option value="xbox one">XBOX ONE</option>
+                  <option value="pc">PC</option>
+                  <option value="ps3">PS3</option>
+                  <option value="ps4" >PS4</option>
+                  <option value="ps5">PS5</option>
+                  <option value="switch">SWITCH</option>
                 </Form.Control>
               </InputGroup.Append>
               <Button variant="outline-info" className="searchBtn" type="submit" onClick={this.handleSubmit}>Search</Button>
@@ -94,9 +106,6 @@ export default class Buy extends React.Component {
                     Seller
                 </th>
                   <th>
-                    Rating
-                </th>
-                  <th>
                     Condition
                 </th>
                   <th>
@@ -108,19 +117,16 @@ export default class Buy extends React.Component {
                 </tr>
               </thead>
               <tbody>
-                {this.state.user.map((list, index) => (
+                {this.state.gameListings.map((list, index) => (
                   <tr key={index}>
                     <td>
-                      {list.name}
+                      {list.userName}
                     </td>
                     <td>
-                      {list.rating}
+                      {list.conditions}
                     </td>
                     <td>
-                      {list.condition}
-                    </td>
-                    <td>
-                      {list.info}
+                      {list.additionalNotes}
                     </td>
                     <td>
                       {list.price}

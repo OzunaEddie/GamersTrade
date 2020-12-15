@@ -47,7 +47,7 @@ export default class API {
     return response_1['transactionList']
   }
 
-  async updateProfile(data){
+  async updateProfile(data) {
     const response = await fetch('/profile/update', {
       method: 'POST',
       headers: {
@@ -59,14 +59,14 @@ export default class API {
     return response_1['error'];
   }
 
-  async getUserProfile(data){
+  async getUserProfile(data) {
     const response = await fetch('/profile/getProfile', {
       method: 'POST',
       headers: {
         'Content-type': 'application/json',
       },
-        body: JSON.stringify(data),
-      });
+      body: JSON.stringify(data),
+    });
     const response_1 = await response.json();
     return response_1['profile']
   }
@@ -77,10 +77,22 @@ export default class API {
       headers: {
         'Content-type': 'application/json',
       },
-        body: JSON.stringify(data),
-      });
-    const response_1 = await response.json()
-    return response['error']
+      body: JSON.stringify(data),
+    });
+    const response_1 = await response.json();
+    return response['error'];
+  }
+
+  async getListings(data) {
+    const response = await fetch('/listings/showListings', {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+    const response_1 = await response.json();
+    return response_1['gameListings'];
   }
 
 }
