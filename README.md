@@ -124,4 +124,4 @@ An Example `Transaction`:
 
 Eddie Ozuna\
 Kevin Alvarez\
-Sandy Qiu\
+Sandy Qiu
