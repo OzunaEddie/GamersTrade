@@ -10,7 +10,8 @@ export default class TransactionHistory extends React.Component {
     const cookies = new Cookies()
     const API = new api();
     API.getTransactionHistory({ token: cookies.get('token') }).then(resultList => {
-      this.setState({ transactions: resultList });
+      this.setState({'transactions' : resultList});
+      console.log(this.state['transactions'])
     })
   }
 

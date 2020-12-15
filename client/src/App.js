@@ -83,7 +83,7 @@ class App extends React.Component {
               <Route path="/about" component={HelpCenter} />
               <Route path="/contact" component={HelpCenter} />
               <Route path="/FAQs" component={HelpCenter} />
-              <Route path="/transaction" component={TransactionHistory} />
+              <Route path="/transactionhistory" component={TransactionHistory} />
               <Route path="/tradeguarantee" component={TradeGuarantee} />
               <Route path="/termagreement" component={TermAgreement} />
               <Route path="/privacypolicy" component={PrivacyPolicy} />

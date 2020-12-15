@@ -37,13 +37,14 @@ export default class API {
 
   async getTransactionHistory(data) {
     const response = await fetch('/transaction/history', {
-      method: 'GET',
+      method: 'POST',
       headers: {
         'Content-type': 'application/json',
       },
+      body: JSON.stringify(data),
     });
     const response_1 = await response.json();
-    return response_1
+    return response_1['transactionList']
   }
 }
 
