@@ -27,18 +27,21 @@
 .selection{
     border-radius: 0;
     border-color: black;
+    width: 100% !important;
 }
 
 .image {
     margin-left: 15px;
-    margin-right: 15px;
+    margin-right: 10px;
     margin-top:5px;
-    width: 35%;
+    width: 40% !important;
+    height: 200px !important;
 }
 
 
 .img-body{
     padding: 0 !important;
+    margin-right: 10px !important;
 }
 
 
