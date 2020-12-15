@@ -44,7 +44,6 @@ export default class Profile extends React.Component {
                     <Image className="profileImg" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" roundedCircle />
                   </Col>
                 </Row>
-                  <Button data-testid="save" variant="danger" type="submit" className="saveChangesBtn" href="/transactionhistory">Transaction History</Button>
                 <Row className="justify-content-center mt-2">
                   <Col xs="auto">
                     <h4 className="userName">{this.state.username}</h4>
