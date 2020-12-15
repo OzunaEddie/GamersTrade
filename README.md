@@ -129,4 +129,3 @@ An Example `Transaction`:
 Eddie Ozuna\
 Kevin Alvarez\
 Sandy Qiu\
-Moshe Oppenheim
