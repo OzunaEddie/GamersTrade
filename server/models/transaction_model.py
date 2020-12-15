@@ -53,6 +53,13 @@ class TransactionModel:
             + '  )')
         self.database.commit()
 
+    def getTransactionsByUser(self,userId):
+        self.dataCur.execute(
+            'SELECT * FROM Transaction WHERE sellerId=%s OR buyerId=%s', str(userId),str(userId)
+        )
+        results = self.dataCur.fetchall()
+        return results
+
     def getTransactionBySeller(self, sellerId):
         self.dataCur.execute(
             'SELECT * FROM Transaction WHERE sellerId=%s', str(sellerId)

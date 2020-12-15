@@ -1,7 +1,7 @@
 import Cookies from 'universal-cookie';
 
 export default class API {
-  async logIn(data){
+  async logIn(data) {
     const response = await fetch('/auth/login', {
       method: 'POST',
       headers: {
@@ -19,7 +19,7 @@ export default class API {
     }
   }
 
-  async register(data){
+  async register(data) {
     const response = await fetch('/auth/register', {
       method: 'POST',
       headers: {
@@ -33,6 +33,17 @@ export default class API {
     } else {
       return response_1['error'];
     }
+  }
+
+  async getTransactionHistory(data) {
+    const response = await fetch('/transaction/history', {
+      method: 'GET',
+      headers: {
+        'Content-type': 'application/json',
+      },
+    });
+    const response_1 = await response.json();
+    return response_1
   }
 }
 
