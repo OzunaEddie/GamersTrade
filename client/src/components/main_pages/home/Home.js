@@ -5,13 +5,14 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import {Form, Button, FormControl, InputGroup, Card, ListGroup, ListGroupItem, Table} from 'react-bootstrap';
 import Image from 'react-bootstrap/Image';
+import { withRouter } from 'react-router'
 
 
-export default class Home extends React.Component {
+class Home extends React.Component {
 
   componentDidMount() {
     // Insert Backend Call For Textbooks When Nothing is on Search
-    fetch('https://rawg.io/api/games?page_size=1000')
+    fetch('https://rawg.io/api/games?page_size=50')
     .then(response => response.json())
     .then(result => {
       console.log(result)
@@ -48,6 +49,13 @@ export default class Home extends React.Component {
   handleChange = (input) => (e) => {};
 
   handleSubmit = (e) => {};
+
+  selectedGame = index => (e) => {
+    e.preventDefault(); 
+    // Add Backend For When Textbook Is Clicked
+    localStorage.setItem('game',JSON.stringify(this.state.games[index]));
+    window.location.href = '/buy';
+  }
 
   render() {
 
@@ -103,7 +111,7 @@ export default class Home extends React.Component {
                     <Card.Text>
                       {list.console}
                     </Card.Text>
-                    <Button variant="light" className="chooseBtn" href="/Buy" >Buy</Button>{' '} <Button variant="light" className="chooseBtn" href="/Sell" >Sell</Button>{' '}  <Button variant="light" className="chooseBtn" href="/Trade">Trade</Button>
+                    <Button variant="light" className="chooseBtn" onClick={this.selectedGame(index)} >Buy</Button>{' '} <Button variant="light" className="chooseBtn" href="/Sell" >Sell</Button>{' '}  <Button variant="light" className="chooseBtn" href="/Trade">Trade</Button>
                     </ListGroupItem>
                   </ListGroup>
             </Card>
@@ -115,3 +123,5 @@ export default class Home extends React.Component {
     );
   }
 }
+
+export default withRouter(Home);

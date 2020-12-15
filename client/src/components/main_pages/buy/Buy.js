@@ -6,6 +6,16 @@ import {Button, Card, Form, FormControl, InputGroup, ListGroup, ListGroupItem, T
 import Container from "react-bootstrap/Container";
 
 export default class Buy extends React.Component {
+  componentDidMount() {
+
+    // Change this to authenticate the user
+    // It currently gets the token and check if a username exist.
+    // If it exists then it is an authorized user.
+    const game = JSON.parse(localStorage.getItem('game'));
+    this.setState({ game: game });
+    localStorage.clear();
+  }
+
   constructor(props) {
     super(props);
     this.state = {
