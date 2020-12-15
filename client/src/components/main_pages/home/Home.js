@@ -50,18 +50,19 @@ class Home extends React.Component {
 
   handleSubmit = (e) => { };
 
-  selectedGameBuy = index => (e) => {
-    e.preventDefault();
+  selectedGame = (index,path) => (e) => {
+    e.preventDefault(); 
     // Add Backend For When Textbook Is Clicked
-    localStorage.setItem('game', JSON.stringify(this.state.games[index]));
-    window.location.href = '/buy';
-  }
 
-  selectedGameSell = index => (e) => {
-    e.preventDefault();
-    // Add Backend For When Textbook Is Clicked
-    localStorage.setItem('game', JSON.stringify(this.state.games[index]));
-    window.location.href = '/sell';
+    localStorage.setItem('game',JSON.stringify(this.state.games[index]));
+    if(path == 'buy'){
+      window.location.href = '/buy';
+    }else if(path == 'sell'){
+      window.location.href = '/sell';
+    }else{
+      window.location.href = '/trade';
+    }
+    
   }
 
   render() {
@@ -115,10 +116,10 @@ class Home extends React.Component {
                   </div>
                   <ListGroup variant="flush" className="game-body">
                     <ListGroupItem className="game-body">
-                      <Card.Text>
-                        {list.console}
-                      </Card.Text>
-                      <Button variant="light" className="chooseBtn" onClick={this.selectedGameBuy(index)} >Buy</Button>{' '} <Button variant="light" className="chooseBtn" onClick={this.selectedGameSell(index)} >Sell</Button>{' '}  <Button variant="light" className="chooseBtn" href="/Trade">Trade</Button>
+                    <Card.Text>
+                      {list.console}
+                    </Card.Text>
+                    <Button variant="light" className="chooseBtn" onClick={this.selectedGame(index,'buy')} >Buy</Button>{' '} <Button variant="light" className="chooseBtn" onClick={this.selectedGame(index,'sell')} >Sell</Button>{' '}  <Button variant="light" className="chooseBtn" onClick={this.selectedGame(index,'trade')}>Trade</Button>
                     </ListGroupItem>
                   </ListGroup>
                 </Card>
