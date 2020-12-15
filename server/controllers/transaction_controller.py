@@ -9,6 +9,7 @@ import logging
 
 bp = Blueprint('transaction', __name__, url_prefix='/transaction')
 
+
 @bp.route('/purchase', methods=['GET', 'POST'])
 @token_required
 def addTransaction():
@@ -16,7 +17,8 @@ def addTransaction():
         transaction = transaction_model.TransactionModel()
         req = request.json
         listing = listings_model.ListingsModel(listingId=req['listingId'])
-        transaction.addTransaction(listingId=req['listingId'],sellerId=listing.getUserId(),buyerId=session['userId'],price=listing.getPrice())
+        transaction.addTransaction(listingId=req['listingId'], sellerId=listing.getUserId(), buyerId=session['userId'],
+                                   price=listing.getPrice())
         return json.dumps({'Added': True})
 
     return json.dumps({'Added': False})
