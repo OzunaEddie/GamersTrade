@@ -7,16 +7,16 @@ class ListingsModel:
     def __init__(self, listingId=None, gameId=None, userId=None, price=None, console=None, condition=None,
                  additionalNotes=None, sold=False, buyOrTrade=None):
         self.database = db.connection
-        self.dataCur = db.connection.cursor(dictionary=True)
+        self.dataCur = db.connection.cursor()
         self.listingId = listingId
-        self.userId = None
-        self.gameId = None
-        self.price = None
-        self.console = None
-        self.condition = None
-        self.additionalNotes = None
-        self.sold = False
-        self.buyOrTrade = None
+        self.userId = userId
+        self.gameId = gameId
+        self.price = price
+        self.console = console
+        self.condition = condition
+        self.additionalNotes = additionalNotes
+        self.sold = sold
+        self.buyOrTrade = buyOrTrade
 
         if listingId is not None:
             self.dataCur.execute('SELECT * FROM Listings WHERE listingId = ' + "'" + str(listingId) + "'")
@@ -78,16 +78,12 @@ class ListingsModel:
 
     def insertListing(self):
         self.dataCur.execute(
-            'INSERT INTO Listings (userId,gameId,price,console,condition,additionalNotes,sold,buyOrTrade) VALUES (' \
-            + "'" + self.userId
-            + "'," + "'" + self.gameId \
-            + "'," + "'" + str(self.price) \
-            + "'," + "'" + self.console \
-            + "'," + "'" + self.condition \
-            + "'," + "'" + self.additionalNotes \
-            + "'," + "'" + self.sold \
-            + "'," + "'" + self.buyOrTrade \
-            + '  )')
+            'INSERT INTO Listings (userId,gameId,price,console,conditions,additionalNotes,sold,buyOrTrade) VALUES(%s,%s,%s,%s,%s,%s,%s,%s)' \
+            , (str(self.userId), str(self.gameId), str(self.price), str(self.console), str(self.condition),
+               str(self.additionalNotes), int(self.sold),
+               str(self.buyOrTrade))
+        )
+
         self.database.commit()
 
     def removeListing(self, listingId=None):

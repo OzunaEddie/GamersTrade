@@ -71,5 +71,17 @@ export default class API {
     return response_1['profile']
   }
 
+  async addListing(data) {
+    const response = await fetch('/listings/addListing', {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json',
+      },
+        body: JSON.stringify(data),
+      });
+    const response_1 = await response.json()
+    return response['error']
+  }
+
 }
 
