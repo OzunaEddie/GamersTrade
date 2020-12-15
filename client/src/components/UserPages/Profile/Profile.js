@@ -5,8 +5,36 @@ import Col from 'react-bootstrap/Col';
 import {Form, Button} from 'react-bootstrap';
 import Image from 'react-bootstrap/Image';
 import './Profile.css'
+import api from '../../API/api'
+import jwt_decode from "jwt-decode";
+import Cookies from 'universal-cookie';
 
 export default class Profile extends React.Component {
+
+  componentDidMount(){
+    // Replace this information with information retrieved from the backend about the user.
+    
+    const cookies = new Cookies();
+    this.setState({token: cookies.get('token')})
+    const API = new api();
+    API.getUserProfile({token: cookies.get('token')}).then( profile => {
+      this.setState({
+        token: cookies.get('token'),
+        username: jwt_decode(cookies.get('token')).username,
+        email: jwt_decode(cookies.get('token')).email,
+        firstName: profile['firstName'],
+        lastName: profile['lastName'],
+        phoneNumber: profile['phoneNumber'],
+        address: profile['street'],
+        city: profile['city'],
+        state: profile['state'],
+        zipcode: profile['zipCode'],
+      })
+    })  
+    
+  }
+
+
   constructor() {
     super();
     this.state = {
@@ -29,9 +57,55 @@ export default class Profile extends React.Component {
       errors: [],
     };
   }
-  handleChange = (input) => (e) => {
+
+   // Handle field change
+   handleChange = (input) => (e) => {
     this.setState({ [input]: e.target.value });
   };
+ // eventually api call to call the backend
+ handleSubmit = (e) => {
+  e.preventDefault();
+  const { Password, newPassword, newPassword2 } = this.state;
+  var newState = Object.assign({}, this.state);
+  newState.errors = [];
+  // Users are allowed to change their information as long as they enter their current password.
+  // They are NOT forced to change their current password when updating their information.
+  if (Password === "") {
+    newState.errors.push("Please Enter Current Password to Make Any Changes");
+  }
+  else{
+    if(newPassword === "" && newPassword2 === ""){
+      // Backend, check if the password is correct with user password in database. 
+      // If so, update email, firstName, lastName, phoneNumber, address, city, state, zipcode
+      // If not, return an error saying "Current Password is Incorrect"
+      const data = this.state
+      const API = new api();
+      API.updateProfile(data).then( error => {
+        this.setState(({errors}) => ({
+          errors: errors.concat(error)
+        }));
+      });
+    }
+    else{
+      if (newPassword !== newPassword2) {
+        newState.errors.push("The New Passwords Do Not Match");
+      }
+      else{
+        // Backend, check if the password is correct with user password in database. 
+        // If so, update password using the new password, email, firstName, lastName, phoneNumber, address, city, state, zipcode
+        // If not, return an error saying "Current Password is Incorrect"
+        const data = this.state
+        const API = new api();
+        API.updateProfile(data).then( error => {
+          this.setState(({errors}) => ({
+            errors: errors.concat(error)
+          }));
+        });
+      }
+    }
+  }
+  this.setState(newState);
+};
 
  render() {
     return (
@@ -81,6 +155,10 @@ export default class Profile extends React.Component {
                         <Form.Group as={Col} sm="12" md="6" controlId="formAddress">
                           <Form.Label>Address:</Form.Label>
                           <Form.Control data-testid="address" className="profile-forms" type="text" placeholder="Enter Address" value={this.state.address} onChange={this.handleChange("address")}/>
+                        </Form.Group>
+                        <Form.Group as={Col} sm="12" md="6" controlId="formPhone">
+                          <Form.Label>Phone Number:</Form.Label>
+                          <Form.Control data-testid="phone" className="profile-forms" type="text" placeholder="Enter Phone Number" value={this.state.phoneNumber} onChange={this.handleChange("phoneNumber")}/>
                         </Form.Group>
                       </Form.Row>
                       <Form.Row>

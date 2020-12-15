@@ -101,7 +101,7 @@ export default class NavUser extends React.Component {
               <NavDropdown className="ml-auto navItem" title={"Hi, " + this.state.username} id="basic-nav-dropdown dropdown-menu-align-right" alignRight>
                 <NavDropdown.Item href="/MyListing">My Listing</NavDropdown.Item>
                 <NavDropdown.Item href="./TransactionHistory">Transaction History</NavDropdown.Item>
-                <NavDropdown.Item href="/Account">Account</NavDropdown.Item>
+                <NavDropdown.Item href="/Profile">Account</NavDropdown.Item>
                 <NavDropdown.Item href="/Help">Help</NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item className="navSignOut" onClick={this.signOut}>{"Not " + this.state.username + "? Sign out"}</NavDropdown.Item>

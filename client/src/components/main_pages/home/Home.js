@@ -8,11 +8,40 @@ import Image from 'react-bootstrap/Image';
 
 
 export default class Home extends React.Component {
+
+  componentDidMount() {
+    // Insert Backend Call For Textbooks When Nothing is on Search
+    fetch('https://rawg.io/api/games?page_size=100')
+    .then(response => response.json())
+    .then(result => {
+      console.log(result)
+          let listGames = result.results;
+          for(let i=0;i<listGames.length;i++){
+            if (listGames[i]['esrb_rating'] == null){
+              continue;
+            }
+            console.log(result[i])
+            let game = this.state.games.concat({
+              id: listGames[i]['id'],
+              title: listGames[i]['name'] ,
+              copy: 0, 
+              type: listGames[i]['genres'][0]['name'],
+              description: listGames[i]['esrb_rating']['name'],
+              date: listGames[i]['released'],
+              image: listGames[i]['background_image']
+            });
+            this.setState({ games: game });
+          }
+      
+    })
+  }
+
+
  constructor(props) {
     super(props);
     this.state = {
       search: "",
-      game: {},
+      games: [],
       price:"",
     };
   }
@@ -47,39 +76,40 @@ export default class Home extends React.Component {
           </Form>
         </Row>
         <Row className="px-5 py-3">
+          {
+            this.state.games.map((list, index) => (
           <Col sm="6" md="4" lg="3">
               <Card style={{ width: '20rem'}} className="selection">
                   <div className="card-img-top d-flex align-items-center">
-                      <Card.Img variant="top" className = "image" src={this.state.game.image} />
+                      <Card.Img variant="top" className = "image" src={list.image} />
                       <Card.Body className="img-body">
-                      <Card.Title>{this.state.game.title}</Card.Title>
+                      <Card.Title>{list.title}</Card.Title>
                         <Card.Text>
-                          {this.state.game.copy} Copy Available
+                          {list.copy} Copy Available
                         </Card.Text>
                         <Card.Text>
-                          Release Date: {this.state.game.date}
+                          Release Date: {list.date}
                         </Card.Text>
                         <Card.Text>
-                          Genre: {this.state.game.type}
+                          Genre: {list.type}
                         </Card.Text>
                         <Card.Text>
-                          ESRB: {this.state.game.description}
+                          ESRB: {list.description}
                         </Card.Text>
                       </Card.Body>
                   </div>
                   <ListGroup variant="flush" className="game-body">
                     <ListGroupItem className="game-body">
                     <Card.Text>
-                      {this.state.game.console}
-                    </Card.Text>
-                    <Card.Text>
-                      Price: {this.state.game.price}
+                      {list.console}
                     </Card.Text>
                     <Button variant="light" className="chooseBtn" href="/Buy" >Buy</Button>{' '} <Button variant="light" className="chooseBtn" href="/Sell" >Sell</Button>{' '}  <Button variant="light" className="chooseBtn" href="/Trade">Trade</Button>
                     </ListGroupItem>
                   </ListGroup>
             </Card>
           </Col>
+          ))
+            }
         </Row>
       </Container>
     );

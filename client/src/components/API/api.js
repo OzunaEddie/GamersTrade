@@ -46,5 +46,30 @@ export default class API {
     const response_1 = await response.json();
     return response_1['transactionList']
   }
+
+  async updateProfile(data){
+    const response = await fetch('/profile/update', {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+    const response_1 = await response.json();
+    return response_1['error'];
+  }
+
+  async getUserProfile(data){
+    const response = await fetch('/profile/getProfile', {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json',
+      },
+        body: JSON.stringify(data),
+      });
+    const response_1 = await response.json();
+    return response_1['profile']
+  }
+
 }
 
