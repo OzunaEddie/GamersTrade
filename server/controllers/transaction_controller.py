@@ -10,7 +10,7 @@ bp = Blueprint('transaction', __name__, url_prefix='/transaction')
 
 
 @bp.route('/purchase', methods=['GET', 'POST'])
-@token
+@token_required
 def addTransaction():
     if request.method == 'POST':
         transaction = transaction_model.TransactionModel()
